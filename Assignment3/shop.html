@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop | ShoeVerse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">ShoeVerse</div>
+    <nav>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="shop-controls">
+    <input type="text" id="search" placeholder="Search shoes...">
+
+    <select id="filter">
+        <option value="all">All Categories</option>
+        <option value="running">Running</option>
+        <option value="casual">Casual</option>
+        <option value="sports">Sports</option>
+    </select>
+</section>
+
+<section class="product-grid" id="product-container"></section>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+displayProducts(products);
+
+document.getElementById("search").addEventListener("input", filterProducts);
+document.getElementById("filter").addEventListener("change", filterProducts);
+
+function displayProducts(productList){
+    const container = document.getElementById("product-container");
+    container.innerHTML = "";
+
+    productList.forEach(product => {
+        container.innerHTML += `
+        <div class="product-card">
+            <img src="${product.image}">
+            <h3>${product.name}</h3>
+            <p>$${product.price}</p>
+            <button onclick="addToCart(${product.id})">Add to Cart</button>
+        </div>`;
+    });
+}
+
+function filterProducts(){
+    const search = document.getElementById("search").value.toLowerCase();
+    const filter = document.getElementById("filter").value;
+
+    const filtered = products.filter(p =>
+        p.name.toLowerCase().includes(search) &&
+        (filter === "all" || p.category === filter)
+    );
+
+    displayProducts(filtered);
+}
+</script>
+
+</body>
+</html>
