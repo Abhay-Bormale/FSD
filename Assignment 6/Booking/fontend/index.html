@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <h1>📅 Booking System</h1>
+            <div class="nav-links">
+                <button id="logoutBtn" class="btn btn-logout" style="display:none;">Logout</button>
+                <span id="userEmail" class="user-email"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Auth Forms -->
+        <div id="authSection" class="section active">
+            <div class="form-container">
+                <!-- Login Form -->
+                <div id="loginForm" class="form active">
+                    <h2>Login</h2>
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button class="btn btn-primary" onclick="login()">Login</button>
+                    <p>Don't have an account? <a href="#" onclick="toggleForm()">Register</a></p>
+                </div>
+
+                <!-- Register Form -->
+                <div id="registerForm" class="form">
+                    <h2>Register</h2>
+                    <input type="text" id="registerName" placeholder="Full Name" required>
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                    <button class="btn btn-primary" onclick="register()">Register</button>
+                    <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App Section -->
+        <div id="appSection" class="section">
+            <!-- Providers Selection -->
+            <div class="section-box">
+                <h2>Select a Provider</h2>
+                <div id="providersList" class="providers-grid">
+                    <p class="loading">Loading providers...</p>
+                </div>
+            </div>
+
+            <!-- Book Appointment Section -->
+            <div class="section-box booking-section">
+                <div class="booking-header">
+                    <h2>Book Your Appointment</h2>
+                    <div id="selectedProviderInfo" class="selected-provider-info" style="display:none;">
+                        <p><strong>Selected Provider:</strong> <span id="selectedProviderName">-</span></p>
+                    </div>
+                </div>
+                <div class="booking-form">
+                    <select id="providerSelect" required style="display:none;">
+                        <option value="">Select a Provider</option>
+                    </select>
+                    <input type="date" id="appointmentDate" required>
+                    <input type="time" id="appointmentTime" required>
+                    <button class="btn btn-primary btn-book" onclick="bookAppointment()">Book Appointment</button>
+                </div>
+                <div id="bookingMessage" class="message"></div>
+            </div>
+
+            <!-- My Appointments -->
+            <div class="section-box">
+                <h2>My Appointments</h2>
+                <div id="appointmentsList" class="appointments-list">
+                    <p class="loading">Loading appointments...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

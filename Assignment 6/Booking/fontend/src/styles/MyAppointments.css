@@ -1,0 +1,109 @@
+.my-appointments h2 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.appointments-loading,
+.appointments-error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 16px;
+}
+
+.appointments-error {
+  color: #c33;
+  background-color: #fee;
+  border-left: 4px solid #c33;
+  border-radius: 4px;
+}
+
+.no-appointments {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+}
+
+.appointments-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.appointment-card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.appointment-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-card.cancelled {
+  opacity: 0.6;
+  background-color: #f9f9f9;
+}
+
+.appointment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.appointment-card h3 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.booked {
+  background-color: #e8f4f8;
+  color: #0066cc;
+}
+
+.status-badge.cancelled {
+  background-color: #fee;
+  color: #c33;
+}
+
+.appointment-details {
+  margin-bottom: 1.5rem;
+}
+
+.appointment-details p {
+  margin: 0.5rem 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.appointment-details strong {
+  color: #2c3e50;
+}
+
+.cancel-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
